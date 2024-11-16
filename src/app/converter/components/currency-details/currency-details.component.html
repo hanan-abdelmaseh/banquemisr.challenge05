@@ -25,6 +25,38 @@
         </div>
         
     </div>
+
+    <div class="row mt-4">
+
+
+        <div class="col-md-12">
+           <div class="row mb-5">
+            <div class="col-md-12">
+                <p>
+                     Rates From   <span>
+                       {{ fromCurrency}}
+                    </span> To <span> {{toCurrency}}</span> Recently
+                </p> 
+            </div>
+           </div>
+                 <!--specific historical rates-->
+<div class="recent-rates">
+<table>
+    <tr>
+        <th>Currency</th>
+        <th>Amount</th>
+       
+    </tr>
+    <tr  *ngFor="let item of recentRatesList | keyvalue">
+        <td>{{item.key}}</td>
+        <td>{{item.value}}</td>
+    </tr>
+  
+</table>
+</div>
+
+        </div>
+    </div>
     <div class="row mt-4">
 
 
@@ -63,6 +95,7 @@
     </div>
 
 
+
     <div class="row mt-5 mb-5">
         <div class="col-md-6">
             <p>
@@ -73,6 +106,31 @@
             <div class="buttons">
                 <button class="btn  secondaryBtn"  routerLink="/converter/currencies-names" > see All Names</button>
             </div>
+        </div>
+       </div>
+
+
+
+
+       <div class="row mt-5 mb-5">
+        <div class="col-md-12">
+            <p>
+                See Conversion from {{fromCurrency}} To Some Popular currecies.  
+            </p> 
+            <table>
+                <tr >
+                    <th>Currency</th>
+                    <th>Exchange Rate</th>
+                    <th>1 {{fromCurrency}} = (Currency)</th>
+                   
+                </tr>
+                <tr  *ngFor="let item of popularRatesList | keyvalue">
+                    <td>{{item.key}}</td>
+                    <td>{{item.value}}</td>
+                    <td>1 {{fromCurrency}} =  {{item.value}} {{item.key}}</td>
+                </tr>
+              
+            </table>
         </div>
        </div>
   </div>
