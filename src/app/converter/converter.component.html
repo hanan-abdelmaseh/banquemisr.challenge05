@@ -44,7 +44,7 @@
                </div>
                <div class="col-lg-1 text-center">
                 <span  class="convert-icon" (click)="swapValues(currencyMainForm)">
-                  <!--not implemented yet-->
+                  <!-- implemented -->
                  <span class="material-symbols-outlined">
                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
                  </span>   
@@ -76,9 +76,11 @@
           </form>
 
 
-          <p>
-            Value is  <span> </span>
-          </p>
+          <!--not handled due to convert Api limited subscription-->
+                <!-- <div *ngIf="convertedAmount !== null">
+                    <p>Conversion Result: {{ amount }} {{from currency}} = {{ convertedAmount }} {{ to currency }}</p>
+                  </div> -->
+                  <p>Conversion Result: </p>
     </div>
             </div>
         </div>
