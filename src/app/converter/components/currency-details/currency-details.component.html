@@ -37,23 +37,28 @@
                        {{ fromCurrency}}
                     </span> To <span> {{toCurrency}}</span> Recently
                 </p> 
+                  <!--specific latest rates-->
+                  <ng-container  >
+                    <div class="recent-rates">
+                        <table>
+                            <tr>
+                                <th>Currency</th>
+                                <th>Amount</th>
+                               
+                            </tr>
+                            <tr  *ngFor="let item of recentRatesList | keyvalue">
+                                <td>{{item.key}}</td>
+                                <td>{{item.value}}</td>
+                            </tr>
+                          
+                        </table>
+                        </div>
+                 </ng-container>
+               
             </div>
            </div>
-                 <!--specific historical rates-->
-<div class="recent-rates">
-<table>
-    <tr>
-        <th>Currency</th>
-        <th>Amount</th>
-       
-    </tr>
-    <tr  *ngFor="let item of recentRatesList | keyvalue">
-        <td>{{item.key}}</td>
-        <td>{{item.value}}</td>
-    </tr>
-  
-</table>
-</div>
+               
+
 
         </div>
     </div>
@@ -63,13 +68,13 @@
         <div class="col-md-12">
            <div class="row mb-5">
             <div class="col-md-6">
-                <p>
+                <p >
                     Historical Rates From   <span>
                        {{ fromCurrency}}
                     </span> To <span> {{toCurrency}}</span> during the last year 
                 </p> 
             </div>
-            <div class="col-md-6 text-end">
+            <div class="col-md-6 text-end"  >
                 <div class="buttons">
                     <button class="btn  secondaryBtn"  routerLink="/converter/historical-rates"  [queryParams]="{from: fromCurrency }" > see All History</button>
                 </div>
@@ -77,18 +82,22 @@
            </div>
                  <!--specific historical rates-->
 <div class="hostorical-rates">
-<table>
-    <tr>
-        <th>Currency</th>
-        <th>Amount</th>
-       
-    </tr>
-    <tr  *ngFor="let item of ratesList | keyvalue">
-        <td>{{item.key}}</td>
-        <td>{{item.value}}</td>
-    </tr>
-  
-</table>
+    <ng-container  >
+        <table>
+            <tr>
+                <th>Currency</th>
+                <th>Amount</th>
+               
+            </tr>
+            <tr  *ngFor="let item of ratesList | keyvalue">
+                <td>{{item.key}}</td>
+                <td>{{item.value}}</td>
+            </tr>
+          
+        </table>
+    </ng-container>
+   
+
 </div>
 
         </div>
@@ -117,7 +126,8 @@
             <p>
                 See Conversion from {{fromCurrency}} To Some Popular currecies.  
             </p> 
-            <table>
+            <ng-container  
+            > <table>
                 <tr >
                     <th>Currency</th>
                     <th>Exchange Rate</th>
@@ -130,7 +140,10 @@
                     <td>1 {{fromCurrency}} =  {{item.value}} {{item.key}}</td>
                 </tr>
               
-            </table>
+            </table></ng-container>
+           
+
+          
         </div>
        </div>
   </div>
