@@ -8,6 +8,7 @@ import { CurrencyNamesComponent } from './components/currency-names/currency-nam
 import { EurDetailsComponent } from './components/eur-details/eur-details.component';
 import { UsdDetailsComponent } from './components/usd-details/usd-details.component';
 import { HistoricalRatesComponent } from './components/historical-rates/historical-rates.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HistoricalRatesComponent } from './components/historical-rates/historic
   ],
   imports: [
     CommonModule,
-    ConverterRoutingModule
+    ConverterRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ConverterModule { }
