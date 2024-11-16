@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "currency-exchanger": {
+    "banquemisr.challenge05": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/currency-exchanger",
+            "outputPath": "dist/banquemisr.challenge05",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
