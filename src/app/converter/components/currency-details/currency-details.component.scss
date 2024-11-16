@@ -1,0 +1,39 @@
+p{
+    color: #666666;
+}
+
+span{
+    color: #00A79D;
+}
+
+.back{cursor: pointer;}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .history{
+    
+        background-color: #212529;
+        display: inline-block;
+        width: auto;
+        padding: 14px 30px;
+        border-radius: 5px;
+        text-align: center;
+        color: #fff;
+        border: none; 
+    
+  }

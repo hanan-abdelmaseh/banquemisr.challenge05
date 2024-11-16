@@ -1,1 +1,23 @@
-<p>currency-names works!</p>
+<div class="hostorical-rates">
+    <p>
+     All Currencies names 
+    </p>
+ <table>
+     <tr>
+         <th>Currency</th>
+         <th>Full name</th>
+        
+     </tr>
+     <tr  *ngFor="let item of currencyNamesList | keyvalue">
+         <td>{{item.key}}</td>
+         <td>{{item.value}}</td>
+     </tr>
+     <!-- <mat-paginator 
+     [length]="total"
+     [pageSize]="pageSize"
+     (page)="changePage($event)"
+     [pageSizeOptions]="[5, 10, 25, 100]"
+     aria-label="Select page">
+ </mat-paginator> -->
+ </table>
+ </div>
