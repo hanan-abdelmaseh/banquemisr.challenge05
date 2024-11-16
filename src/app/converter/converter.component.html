@@ -10,15 +10,15 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-    <div class="convert-content">
+    <div class="content-shadow ">
         <h3>
            Currency Exchanger
         </h3>
         <p>
             Convert Currency from {{baseCurrency}} to your favorite Currency
-        </p>
-          <form [formGroup]="currencyForm" 
-           (ngSubmit)="convertCurrency(currencyForm)" class="convert-form mt-4">
+        </p> 
+          <form [formGroup]="currencyMainForm"   *ngIf="currencyMainForm"
+           (ngSubmit)="convertCurrency(currencyMainForm)" class="convert-form mt-4">
             <div class="row">
                 <div class="col-lg-3">
                      <div class="form-group">
@@ -32,7 +32,8 @@
                     <div class="form-group">
                        <label for="currency">From</label>
                       
-                        <select   name="country-from"  formControlName="currencyForm" >
+                        <select [(ngModel)]="selectedValue1"  
+                        name="currency-from-from"  formControlName="currencyFrom" >
 
                         <option 
                          *ngFor="let currency of currencyNamesList | keyvalue"
@@ -42,10 +43,10 @@
                     </div>
                </div>
                <div class="col-lg-1 text-center">
-                <span  class="convert-icon" (click)="swapValues(currencyForm)">
+                <span  class="convert-icon" (click)="swapValues(currencyMainForm)">
                   <!--not implemented yet-->
                  <span class="material-symbols-outlined">
-                    swap_horiz
+                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                  </span>   
                     </span>
 
@@ -54,7 +55,8 @@
                <div class="col-lg-4">
                 <div class="form-group">
                    <label for="currency"> To</label>
-                   <select name="country-to" id="country-to" formControlName="currencyTo">
+                   <select [(ngModel)]="selectedValue2"
+                   name="currency-to" id="country-to" formControlName="currencyTo">
                     <option #toCurrencyValue
                      *ngFor="let currency of currencyNamesList | keyvalue"
                         [value]="currency.key">{{currency.key}}</option>
@@ -65,8 +67,8 @@
             </div>
             <div class="row mt-5">
                 <div class="col-lg-12 text-end">
-                   <button type="submit" class="btn btn-convert"
-                   [disabled]="currencyForm.invalid"
+                   <button type="submit" class="btn btn-convert" [disabled]="currencyMainForm.invalid"
+                  
                    
                    >convert</button>
                 </div>
@@ -80,5 +82,17 @@
     </div>
             </div>
         </div>
+
+
+        <div class="row mt-4">
+          <div class="col-md-12">
+              <div class=" text-end">
+               <button  [disabled]="currencyMainForm.invalid"
+                routerLink="../../details"  [queryParams]="{from: fromCurrency , to : toCurrency}"
+               
+               class="btn  secondaryBtn"> Go To Details</button>
+              </div>
+          </div>
+      </div>
     </div>
 </section>

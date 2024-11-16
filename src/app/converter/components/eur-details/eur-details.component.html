@@ -12,7 +12,7 @@
         <div class="col-md-6 m-auto">
             <div class="title text-center">
                 <h5>
-                    CURRENCY Details
+                    Currency Details
                 </h5>
                 <p class="mt-1">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -26,13 +26,15 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="convert-content">
+            <div class="content-shadow">
                 <p>
-                    Convert Currency from {{fromCurrency}} to your favorite
+                    Convert Currency from  <span>
+                        {{fromCurrency}}
+                    </span> to your favorite
                     Currency
                 </p>
-                <form [formGroup]="currencyForm"
-                    (ngSubmit)="convertCurrency(currencyForm)"
+                <form [formGroup]="currencyMainForm"
+                    (ngSubmit)="convertCurrency(currencyMainForm)"
                     class="convert-form mt-4">
                     <div class="row">
                         <div class="col-lg-4">
@@ -47,7 +49,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="currency">From</label>
-                                    <select   name="country-from"  formControlName="currencyForm" >
+                                    <select   name="country-from"  formControlName="currencyFrom" >
 
                                         <option 
                                     [value]="fromCurrency"
@@ -75,7 +77,7 @@
                     <div class="row mt-5">
                         <div class="col-lg-12 text-end">
                             <button type="submit" class="btn btn-convert"
-                                [disabled]="currencyForm.invalid">convert</button>
+                                [disabled]="currencyMainForm.invalid">convert</button>
                         </div>
                     </div>
                 </form>
@@ -86,13 +88,13 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-md-12">
             <div class=" text-end">
-             <button  [disabled]="currencyForm.invalid"
+             <button  [disabled]="currencyMainForm.invalid"
               routerLink="../../details"  [queryParams]="{from: fromCurrency , to : currencyTo}"
              
-             class="btn  detailsBtn"> Go To Details</button>
+             class="btn  secondaryBtn"> Go To Details</button>
             </div>
         </div>
     </div>

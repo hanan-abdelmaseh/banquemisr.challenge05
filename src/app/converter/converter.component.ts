@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Rates, Symbols } from './Models/converter.model';
 import { ConverterService } from './services/converter.service';
 
@@ -10,25 +10,36 @@ import { ConverterService } from './services/converter.service';
 })
 export class ConverterComponent  implements OnInit{
   ratesList!: Rates;
+
+
+  currencyMainForm!:FormGroup
   currencyNamesList!: Symbols;
+  fromCurrency:string ='';
+   
+  toCurrency:string =''
   baseCurrency: string = '';
   baseValue: number = 0;
   currencyExchangeValue: number = 0;
 
-  constructor(private _ConverterService: ConverterService, private _FB: FormBuilder) {
+  //for swap
+  selectedValue1: string = '';  
+  selectedValue2: string = '';
 
+  constructor(private _ConverterService: ConverterService, private _FB: FormBuilder) {
+    this.currencyMainForm = this._FB.group({
+      amount: ['', Validators.required],
+      currencyFrom: ['', Validators.required],
+      currencyTo: ['', Validators.required]
+    });
   }
 
-
-  currencyForm = this._FB.group({
-    amount: ['', Validators.required],
-    currencyForm: ['', Validators.required],
-    currencyTo: ['', Validators.required]
-  });
+  
+  
 
 
 
   ngOnInit(): void {
+    
     this.getCurrencyValues()
   }
 
@@ -44,7 +55,9 @@ export class ConverterComponent  implements OnInit{
 
   convertCurrency(currencyValues: any) {
     console.log(currencyValues);
-    let data = currencyValues.value
+    let data = currencyValues.value;
+    this.toCurrency = data.currencyTo;
+    this.fromCurrency = data.currencyFrom;
     console.log(data);
 
     //this.currencyExchangeValue = data.amount * data.currencyTo;
@@ -60,5 +73,8 @@ export class ConverterComponent  implements OnInit{
   swapValues(currencies:any){
     console.log(currencies.value);
    
+    const temp = this.selectedValue1;
+    this.selectedValue1 = this.selectedValue2;
+    this.selectedValue2 = temp;
   }
 }

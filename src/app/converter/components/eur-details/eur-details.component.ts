@@ -13,7 +13,7 @@ export class EurDetailsComponent  implements OnInit{
   fromCurrency:string ='';
   currencyTo:string =''
   currencyNamesList!:Symbols;
-  currencyForm!:FormGroup;
+  currencyMainForm!:FormGroup;
   constructor(private _ActivatedRoute: ActivatedRoute,private _ConverterService:ConverterService,
     private _Router: Router,private _FB:FormBuilder){
 
@@ -25,9 +25,9 @@ export class EurDetailsComponent  implements OnInit{
         this.fromCurrency = params['from'];
 
      });
-     this.currencyForm = this._FB.group({
+     this.currencyMainForm = this._FB.group({
       amount: ['' ,Validators.required],
-      currencyForm: [this.fromCurrency, Validators.required],
+      currencyFrom: [this.fromCurrency, Validators.required],
       currencyTo: ['', Validators.required]
     });
 
@@ -52,8 +52,8 @@ export class EurDetailsComponent  implements OnInit{
    this.currencyTo = data.currencyTo;
     console.log(this.currencyTo);
 //using api  
-// this._ConverterService.convertCurrency(data.fromCurrency, data.toCurrency,data.amount).subscribe((res)=>{
-//   console.log(res)
-// })
+this._ConverterService.convertCurrency(data.fromCurrency, data.toCurrency,data.amount).subscribe((res)=>{
+  console.log(res)
+})
 }
 }

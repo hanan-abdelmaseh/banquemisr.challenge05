@@ -1,0 +1,42 @@
+@import '../styles/variables.scss';
+
+
+.btn-convert{
+    background-color: #00A79D;
+    display: inline-block;
+    width: auto;
+    padding: 14px 30px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    border: none;
+}
+
+.btn-convert:hover{
+    background-color: #212529;
+}
+.secondaryBtn{
+    
+    background-color: #212529;
+    display: inline-block;
+    width: auto;
+    padding: 14px 30px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    border: none; 
+
+}
+.content-shadow {
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.09);
+    padding: 40px 40px;
+}
+p{
+    color:#666666
+}
+.back{cursor: pointer;}
+
+span{
+    color:$main-color;
+}

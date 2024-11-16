@@ -7,24 +7,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav m-auto mb-2 mb-lg-0 ">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="home">Home</a>
+            <a class="nav-link " routerLinkActive="is-active" aria-current="page" routerLink="home">Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="converter/convert" routerLinkActive="is-active">Convert</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" routerLink="converter/eur-details" routerLinkActive="is-active"  [queryParams]="{from: 'EUR'}">EUR</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="converter">Convert</a>
+            <a class="nav-link" routerLink="converter/usd-details" routerLinkActive="is-active" [queryParams]="{from: 'USD'}" >USD</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" routerLink="converter/usd-details"[queryParams]="{from: 'USD'}" >USD</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="converter/eur-details"  [queryParams]="{from: 'EUR'}">EUR</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact US</a>
-          </li>
+         
+         
         
 
         </ul>

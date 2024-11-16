@@ -5,6 +5,7 @@ import { CurrencyDetailsComponent } from './components/currency-details/currency
 import { HistoricalRatesComponent } from './components/historical-rates/historical-rates.component';
 import { UsdDetailsComponent } from './components/usd-details/usd-details.component';
 import { EurDetailsComponent } from './components/eur-details/eur-details.component';
+import { CurrencyNamesComponent } from './components/currency-names/currency-names.component';
 
 const routes: Routes = [
   {path:'' , redirectTo:'convert' , pathMatch:'full'},
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'currency-details', component: CurrencyDetailsComponent },
   { path: 'usd-details', component: UsdDetailsComponent },
   { path: 'eur-details', component: EurDetailsComponent },
-  {path:'historical-rates', component:HistoricalRatesComponent}];
+  {path:'historical-rates', component:HistoricalRatesComponent},
+  {path:'currencies-names', component:CurrencyNamesComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
