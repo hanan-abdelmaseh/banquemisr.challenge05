@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-1. Clone Repo
+1. Clone Repo "https://github.com/hanan-abdelmaseh/banquemisr.challenge05.git"
 
 ``` git clone  ```
 
