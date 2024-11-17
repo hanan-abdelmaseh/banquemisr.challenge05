@@ -23,10 +23,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 > keep in mind commiting with understandable message
 ### App Module
+
 -  Components
     - Home component
     - Header 
     - Footer
+- core
+    - interceptors
 ### Converter Module
 -  Components
     - Converter component
@@ -42,7 +45,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ```bash
 .
 ├── Components
-│  
+├──  core
+|     ├──interceptors 
 ├── Modules
 │   ├── Converter
 │   │   ├── models
