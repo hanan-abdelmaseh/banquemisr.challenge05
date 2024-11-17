@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class ConverterService {
 
 
-  apiUrl:string ="https://data.fixer.io/api"
+  
 
   apiKey:string = 'f13d09103872912c75772500e4668785';  
 
@@ -25,38 +25,38 @@ export class ConverterService {
 
 
  getCurrencyLatestValues():Observable<Converter>{
-    return this._HttpClient.get<Converter>(`${this.apiUrl}/latest?access_key=${this.apiKey}`)
+    return this._HttpClient.get<Converter>(`/latest?access_key=${this.apiKey}`)
  }
 
  getLatestRateRateForSingleSymbol(base:string, toCurrency:string):Observable<any>{
- return this._HttpClient.get<any>(`${this.apiUrl}/latest?access_key=${this.apiKey}&base=${base}&symbols=${toCurrency}`)
+ return this._HttpClient.get<any>(`/latest?access_key=${this.apiKey}&base=${base}&symbols=${toCurrency}`)
  
  }
  getLatestRateForAllSymbols(base:string):Observable<any>{
-   return this._HttpClient.get<any>(`${this.apiUrl}/latest?base=${base}&symbols`)
+   return this._HttpClient.get<any>(`/latest?base=${base}&symbols`)
  }
 
  getHistoricalRatesFromToAllSymbols(date:string, base:string):Observable<HistoricalRates>{
-  return this._HttpClient.get<HistoricalRates>(`${this.apiUrl}/${date}?base=${base}&symbols&access_key=${this.apiKey}`)
+  return this._HttpClient.get<HistoricalRates>(`/${date}?base=${base}&symbols&access_key=${this.apiKey}`)
  }
 
  getHistoricalRatesFromToOneSymbol(date:string, base:string,symbol:string):Observable<HistoricalRates>{
-   return this._HttpClient.get<HistoricalRates>(`${this.apiUrl}/${date}?base=${base}&symbols=${symbol}&access_key=${this.apiKey}`)
+   return this._HttpClient.get<HistoricalRates>(`/${date}?base=${base}&symbols=${symbol}&access_key=${this.apiKey}`)
   
  
  }
 
  getCureenciesNames():Observable<SymbolsResponse>{
-   return this._HttpClient.get<SymbolsResponse>(`${this.apiUrl}/symbols?access_key=${this.apiKey}`)
+   return this._HttpClient.get<SymbolsResponse>(`/symbols?access_key=${this.apiKey}`)
  }
 
  //convert
  convertCurrency(fromCurrency:string, toCurrency:string, amount:number):Observable<any>{
-   return this._HttpClient.get<SymbolsResponse>(`${this.apiUrl}/convert?access_key=${this.apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${amount}`)
+   return this._HttpClient.get<SymbolsResponse>(`/convert?access_key=${this.apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${amount}`)
  } 
   
  getLatestRateForMultibleCurrenciesForBaseSymbol(base:string):Observable<any>{
-  return this._HttpClient.get(`${this.apiUrl}/latest?access_key=${this.apiKey}&base=${base}&symbols=USD,CAD,JPY,GHS,GNF`)
+  return this._HttpClient.get(`/latest?access_key=${this.apiKey}&base=${base}&symbols=USD,CAD,JPY,GHS,GNF`)
 
 
  }

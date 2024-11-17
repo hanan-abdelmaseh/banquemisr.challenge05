@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from  '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { GlobalInterceptor } from './core/interceptors/global.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ import { HeaderComponent } from './components/header/header.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ {
+    provide :HTTP_INTERCEPTORS ,
+    useClass:GlobalInterceptor ,
+    multi:true // to use other interceptors 
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
