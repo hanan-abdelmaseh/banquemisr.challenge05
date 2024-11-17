@@ -13,7 +13,7 @@ export class HistoricalRatesComponent implements OnInit {
   basicFrom:string='';
 
   fromCurrency :string =''
-  
+  toCurrency:string='';
 
   constructor(private _ConverterService:ConverterService , private _ActivatedRoute:ActivatedRoute){
     // this.basicFrom =this._ActivatedRoute.snapshot.queryParams['from'];
@@ -22,6 +22,7 @@ export class HistoricalRatesComponent implements OnInit {
   ngOnInit(): void {
     this._ActivatedRoute.queryParams.subscribe((params)=>{
       this.fromCurrency = params['from'];
+      this.toCurrency= params['to']
 
    });
 

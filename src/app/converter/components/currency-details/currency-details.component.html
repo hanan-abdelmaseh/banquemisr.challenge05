@@ -76,7 +76,9 @@
             </div>
             <div class="col-md-6 text-end"  >
                 <div class="buttons">
-                    <button class="btn  secondaryBtn"  routerLink="/converter/historical-rates"  [queryParams]="{from: fromCurrency }" > see All History</button>
+                    <button class="btn  secondaryBtn" 
+                     routerLink="/converter/historical-rates" 
+                      [queryParams]="{from: fromCurrency , to:toCurrency }" > see All History</button>
                 </div>
             </div>
            </div>
@@ -113,7 +115,8 @@
         </div>
         <div class="col-md-6 text-end">
             <div class="buttons">
-                <button class="btn  secondaryBtn"  routerLink="/converter/currencies-names" > see All Names</button>
+                <button class="btn  secondaryBtn"  routerLink="/converter/currencies-names" 
+                 [queryParams]="{from: fromCurrency , to:toCurrency }"> see All Names</button>
             </div>
         </div>
        </div>
